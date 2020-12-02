@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="jumbotron mt-4">
+    <h1> entradas </h1>
+    <br>
+    <h4>interpolacion</h4>
+    <p>{{mensaje}}</p>
+    <br>
+
+    <!-- representamos el valor de la propiedad en la vista
+     -- como el interpolacion  cargamos a una propiedad de la clase un input al value REPRESENTA ALGO DE LA CLASE EN LA VISTA -->
+     <h4>property binding</h4>
+    <!-- asi lo cargamos fijo -->
+    <input type="text" value="123412">
+    <br>
+    <!-- aca estamos viendo que fuera del input esta la interpolacion de la propieda de clase... lo que afecte de la clase modifica a lo de afuera. Ael property binding como esta abajo es unidireccional, solo va desde la clase al html el valor... -->
+    <input type="text" value="{{numero2}}">{{numero2}}
+    <br>
+    <!-- de la manera que esta abajo es otra forma de lo que esta abajo -->
+    <input type="text" [value]="numero3">{{numero3}}
+    <br>
+
+    <!-- aqui por un evento modificamos el valor de la propiedad de la clase, o sea accedemos desde el evento en el html a la propiedad de la clase y modificamos y mostramos -->
+    <h4>event binding</h4>
+    <button class="btn btn-primary" (click)="contar()">contar - {{numero}}</button>
+    <br>
+
+    <h4>double data binding</h4>
+    <h5>manual</h5>
+    <!--capturamos el evento sobre el elemento html, esta cos el input y el evento seria presskey, luego caapturamos el valor ingresado y se lo enviamos al metodo que invocamos de la clase para que lo trabaje y lo retorne, en este caso es bidireccional el trato, la propiedad es afectad en la clase y en el html-->
+    <input type="text" [value]="numero4" (input)="actualizar($event)" >{{numero4}}
+
+    <br>
+    <!-- hay que importar el modulo para el ngModle -->
+    <h5>automatico</h5><br>
+    <input type="text" [(ngModel)]="numero5"> {{numero5}}
+
+    <br>
+  </div>
+</div>
