@@ -1,5 +1,39 @@
 <div class="container">
   <div class="jumbotron mt-4">
     <h1> Atributos </h1>
+
+    <h3> NG STYLE </h3>
+
+    <button class="btn btn-success my-2" (click)="estado=!estado" >cambiar</button>
+    <!-- con el ngstyle evaluo una propiedad de la clase que varia y puedo a trabes dela directiva ngstyle definirle el css -->
+    <p [ngStyle]="{'background-color':estado? 'red':'green'}" >
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium qui adipisci nostrum, ipsa quibusdam blanditiis alias fuga nisi consequuntur magni iste quidem voluptate sed quas aliquam voluptates tempore, omnis cum.
+    </p>
+<
+    <hr>
+    <hr>
+
+
+    <h3> NG CLASS </h3>
+
+    <button class="btn btn-success my-2" (click)="estado2=!estado2" >cambiar</button>
+
+    <p [ngClass]="{'bg-warning': estado2, 'bg-danger' : !estado2 }" >
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Praesentium qui adipisci nostrum, ipsa quibusdam blanditiis alias fuga nisi consequuntur magni iste quidem voluptate sed quas aliquam voluptates tempore, omnis cum.
+    </p>
+
+    <hr>
+    <hr>
+
+    <h4>Directiva personalozada</h4>
+    <!--estos atributos se llaman igual que las propiedades dela clase en la directiva-->
+    <p [appResaltar]="color" [colorBase]="'blue'"  >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod a blanditiis, exercitationem aliquid quos provident, placeat, libero obcaecati hic tempore alias suscipit dolore? Nemo, corrupti mollitia porro magni suscipit accusantium.
+    </p>
+
+    <div>
+      <input type="radio" name="colors" (click)="color='black'" >Black
+      <input type="radio" name="colors" (click)="color=''" >Ninguno
+    </div>
   </div>
 </div>

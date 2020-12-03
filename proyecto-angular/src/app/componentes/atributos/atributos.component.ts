@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AtributosComponent implements OnInit {
 
+  estado : boolean = true
+  estado2: boolean = true
+
+  color: string = null
+
   constructor() { }
 
   ngOnInit(): void {

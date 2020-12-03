@@ -7,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstructuraComponent implements OnInit {
 
+  mostrar : boolean = true
+
   alumnos =  [
-    {nombre:'Martin',  edad:26, curso: true, foto:'https://www.iconfinder.com/icons/2754577/man_goatee_user_avatar_icon'},
-    {nombre:'Roberta',  edad:19, curso: true, foto:'https://www.iconfinder.com/icons/2754580/woman_business%20woman_avatar_female_icon'},
-    {nombre:'Juan', edad:23, curso: true, foto:'https://www.iconfinder.com/icons/2754583/man_avatar_user_icon'}
+    {nombre:'Martin',  edad:26, curso: false, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/8_avatar-256.png'},
+    {nombre:'Roberta',  edad:19, curso: true, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/4_avatar-256.png'},
+    {nombre:'Juan', edad:23, curso: true, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/2_avatar-256.png'}
 
   ]
 
@@ -19,4 +21,14 @@ export class EstructuraComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  borrar(index:any){
+    // usamos el metode de js, utilizamos el 1 para ?? revisar el metodo
+    this.alumnos.splice(index,1)
+  }
+
+  agregar(){
+    let alumno = {nombre:'Miguel', edad:20, curso: false, foto:'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/2_avatar-256.png'}
+
+    this.alumnos.push(alumno)
+  }
 }

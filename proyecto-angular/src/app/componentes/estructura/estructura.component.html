@@ -2,6 +2,61 @@
   <div class="jumbotron mt-4">
     <h1> escructura </h1>
 
+    <h3>ngIf</h3>
+    <!-- el boton altera el valor de la propiedad de clase, y esto ingresa a el if en el elemento afectado por la propiedad y lo evalua -->
+    <button class="btn-success my-3" (click)="mostrar=!mostrar" >{{mostrar? 'ocultar':'mostrar'}}</button>
+    <p *ngIf="mostrar" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, amet sit aperiam dicta itaque suscipit dolore placeat distinctio, possimus, quis sed? Illum quidem praesentium repellat doloremque veritatis ab deleniti porro.</p>
+
+    <hr>
+    <h3>ngFor</h3>
+
+    <h2>Alumnos</h2>
+    <div class="btn btn-success my-3" (click)="agregar()" >Agregar Alumno</div>
+    <div *ngIf="alumnos.length">
+
+
+
+
+    <ul>
+      <li *ngFor="let alumno of alumnos" >
+       <!-- <pre>{{ alumno | json }}</pre> -->
+       {{alumno.nombre}}
+      </li>
+    </ul>
+
+    <table class="table table-striped ">
+      <thead class="bg-primary">
+        <tr>
+          <th>Nombre</th>
+          <th>edad</th>
+          <th>curso</th>
+          <th>foto</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let alumno of alumnos" >
+            <td> {{alumno.nombre}} </td>
+            <td> {{alumno.edad}} </td>
+            <td> {{alumno.curso? 'Si':'No'}} </td>
+            <!-- en vez de utilizar la interpolacion en {{}} con alumno.foto, utilizamos la nomeclatura con corchetas que es mas clara  para ver -->
+            <td> <img [src]="alumno.foto" width="50px" alt=""> </td>
+          </tr>
+        </tbody>
+    </table>
+
+    <!-- podemos pasar dentro del ngfor un index as i como referencia del objeto-->
+        <div class="media alert alert-warning" *ngFor="let alumno of alumnos; index as i" >
+          <img [src]="alumno.foto" width="120px" alt="">
+          <div class="media-body ml-3">
+            <p>Alumno nro {{i+1}} </p>
+              <p>Nombre. <b>{{alumno.nombre}} </b></p>
+              <p>Edad: <b>{{alumno.edad}} </b></p>
+              Hizo el curso <input type="checkbox" [(ngModel)]="alumno.curso">
+              <br>
+              <button class="btn btn-danger btn-block" (click)="borrar(i)" >X</button>
+          </div>
+        </div>
+      </div>
 
   </div>
 </div>

@@ -7,6 +7,7 @@ import { EstructuraComponent } from './componentes/estructura/estructura.compone
 import { AtributosComponent } from './componentes/atributos/atributos.component';
 import { FormulariosComponent } from './componentes/formularios/formularios.component';
 import { FormsModule } from '@angular/forms';
+import { ResaltarDirective } from './directivas/resaltar.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     EntradasComponent,
     EstructuraComponent,
     AtributosComponent,
-    FormulariosComponent
+    FormulariosComponent,
+    ResaltarDirective
   ],
   imports: [
     BrowserModule,
