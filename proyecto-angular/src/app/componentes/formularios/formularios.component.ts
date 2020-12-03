@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormulariosComponent implements OnInit {
 
+  formu = {
+    nombre:'',
+    edad:'',
+    email:'',
+    password:'',
+    notas:''
+  }
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  enviar(){
+    console.log(this.formu);
+    this.formu = {
+      nombre:'',
+      edad:'',
+      email:'',
+      password:'',
+      notas:''
+    }
   }
 
 }

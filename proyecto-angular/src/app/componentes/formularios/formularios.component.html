@@ -1,5 +1,48 @@
 <div class="container">
   <div class="jumbotron mt-4">
     <h1> formularios </h1>
+    <h3>from template driven</h3>
+    <h5>formulario manejado por el template</h5>
+
+    <form action="" method="get">
+
+      <div class="form-group">
+        <label for="nombre">nombre</label>
+        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="nombre" aria-describedby="helpId" [(ngModel)]="formu.nombre" >
+        <small id="helpId" class="text-muted">ingrese su nombre</small>
+      </div>
+
+      <div class="form-group">
+        <label for="edad">edad</label>
+        <input type="number" name="edad" id="edad" class="form-control" placeholder="edad" aria-describedby="helpId" [(ngModel)]="formu.edad">
+        <small id="helpId" class="text-muted">ingrese su edad</small>
+      </div>
+
+      <div class="form-group">
+        <label for="email">email</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="email" aria-describedby="helpId" [(ngModel)]="formu.email">
+        <small id="helpId" class="text-muted">ingrese su correo electronico</small>
+      </div>
+
+      <div class="form-group">
+        <label for="password">password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="password" aria-describedby="helpId" [(ngModel)]="formu.password">
+        <small id="helpId" class="text-muted">ingrese su password</small>
+      </div>
+
+
+      <div class="form-group">
+        <label for="notas">notas</label>
+        <textarea cols="30" rows="10"  type="text" name="notas" id="notas" class="form-control" placeholder="notas" aria-describedby="helpId" [(ngModel)]="formu.notas"></textarea>
+        <small id="helpId" class="text-muted">ingrese su notas</small>
+      </div>
+
+
+      <button class="btn-success my-3" (click)="enviar()" >Enviar</button>
+
+    </form>
+
+    <hr>
+    <h3>reactive from</h3>
   </div>
 </div>

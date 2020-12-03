@@ -10,7 +10,7 @@ export class AtributosComponent implements OnInit {
   estado : boolean = true
   estado2: boolean = true
 
-  color: string = null
+  color: string =''
 
   constructor() { }
 

@@ -8,8 +8,8 @@ export class ResaltarDirective {
   constructor( private el:ElementRef ) { }
 
   // estas funciones decoradores hacen es conectar los elementos que interfieren con el elemento CON el elemento mismo. FACILITADOR, de conexion entre las propidades del elemento que va aplicar la directiva y sus propiedades internas. Vamos a conectar la propiedad colorBASE, CON un atributo llamado igual en el HTML
-  @Input() colorBase: string
-  @Input('appResaltar') resaltarColor : string
+  @Input() colorBase: string =''
+  @Input('appResaltar') resaltarColor : string =''
 
   //esta funcion no devuelve nada : void, este es un metodo de la clase resalta directiva, este e el que finalmente va a plicar un estilo al elemento
   private resaltar(color:string) : void {
@@ -29,7 +29,7 @@ export class ResaltarDirective {
 
   // cuando el mouse SALE le pasamos null al color de la funcion resaltar
   @HostListener('mouseleave') onMouseLeave(){
-    this.resaltar(null)
+    this.resaltar('')
   }
 
 
