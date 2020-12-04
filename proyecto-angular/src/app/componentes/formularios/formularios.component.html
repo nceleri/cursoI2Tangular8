@@ -38,11 +38,82 @@
       </div>
 
 
-      <button class="btn-success my-3" (click)="enviar()" >Enviar</button>
+      <button class="btn-success my-3" (click)="enviar()">Enviar</button>
 
     </form>
 
     <hr>
     <h3>reactive from</h3>
+    <hr>
+
+    <form [formGroup]=f autocomplete="off " >
+
+      <div class="form-group">
+        <label for="nombre-reactive">nombre</label>
+        <input type="text" formControlName="nombre" id="nombre-reactive" class="form-control">
+      </div>
+
+      <!-- ---------------------------------------------------------- -->
+      <!-- mensaje de error de validacion                             -->
+      <!-- ---------------------------------------------------------- -->
+      <div class="alert alert-danger" *ngIf="f.controls.nombre.errors && f.controls.nombre.dirty" >
+        <div *ngIf="f.controls.nombre.errors.required" >Este campo es requerido</div>
+        <div *ngIf="f.controls.nombre.errors.minlength">no se alcanzo la cantidad minima de caracteres {{getCantidadMinima()}} </div>
+        <div *ngIf="f.controls.nombre.errors.maxlength">se ha superado la cantidad maxima de caracteres </div>
+        <div *ngIf="f.controls.nombre.errors.conEspacios">solo debe ingresar letras sin espacios </div>
+
+      </div>
+
+      <!-- ---------------------------------------------------------- -->
+
+      <div class="form-group">
+        <label for="edad-reactive">edad</label>
+        <input type="number" formControlName="edad" id="edad-reactive" class="form-control">
+      </div>
+
+
+      <div formGroupName="contacto" >
+
+
+        <div class="form-group">
+          <label for="email-reactive">email</label>
+          <input type="email" formControlName="email" id="email-reactive" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="telefono-reactive">telefono</label>
+          <input type="number" formControlName="telefono" id="telefono-reactive" class="form-control">
+        </div>
+
+      </div>
+
+
+      <div class="form-group">
+        <label for="password-reactive">password</label>
+        <input type="password" formControlName="password" id="password-reactive" class="form-control">
+      </div>
+
+
+      <div class="form-group">
+        <label for="notas-reactive">notas</label>
+        <textarea cols="30" rows="10"  type="text" formControlName="notas" id="notas-reactive" class="form-control"></textarea>
+      </div>
+
+      <!-- por property binding vamos a controlar el atributodel html  disable del boton. cuando lo igualamos le decimos, miralo a f que es tu formulario y fijate si tien algun campo valid o no -->
+      <button class="btn-success my-3" [disabled]="!f.valid" (click)="enviar()"> Enviar</button>
+
+    </form>
+
+    <hr>
+    <p>Errores del formulario reactivo</p>
+    <!-- accedemos por controles del id del elemento y le apuntamos al errors que es como values, una atributo-->
+    <pre>{{f.controls.nombre.errors | json }}</pre>
+
+    <hr>
+    <p>datos del formulario reactivo</p>
+    <!-- f tiene muschos datos, el value tiene los datos de los campos
+    actua como un monitor esto que hicimos-->
+    <pre>{{f.value | json }}</pre>
+
   </div>
 </div>

@@ -6,7 +6,7 @@ import { EntradasComponent } from './componentes/entradas/entradas.component';
 import { EstructuraComponent } from './componentes/estructura/estructura.component';
 import { AtributosComponent } from './componentes/atributos/atributos.component';
 import { FormulariosComponent } from './componentes/formularios/formularios.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ResaltarDirective } from './directivas/resaltar.directive';
 
 @NgModule({
@@ -20,7 +20,8 @@ import { ResaltarDirective } from './directivas/resaltar.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
